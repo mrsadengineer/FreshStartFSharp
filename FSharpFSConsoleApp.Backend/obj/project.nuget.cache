@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "j9+YhjlxxiH4GQ1BQMAfnpwApOTkl+8OnhxNh6ZfEMM7Qklu3DFbZQKsdmS5Wt/mqYH932b6zt+ayxXsQk7nWQ==",
+  "success": true,
+  "projectFilePath": "E:\\_myreposAtGithub\\FSharpDotNetFullStackSolution\\FSharpDotNetFullStackSolution\\FSharpFSConsoleApp.Backend\\FSharpFSConsoleApp.Backend.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sammy\\.nuget\\packages\\fsharp.core\\5.0.0\\fsharp.core.5.0.0.nupkg.sha512",
+    "C:\\Users\\Sammy\\.nuget\\packages\\suave\\2.6.0\\suave.2.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}
