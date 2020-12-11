@@ -12,7 +12,8 @@ open Suave.Successful
 
 [<EntryPoint>]
 let main argv =
-//printfn "Hello World from F#!"
+
+    printfn "Hello World from F#!"
    // Define the port where you want to serve. We'll hardcode this for now.
     let port = 8080
    
@@ -34,6 +35,7 @@ let main argv =
             [ GET >=> choose
     
                 [ path "/" >=> request (fun _ -> OK "Hello World!")]
+               // printfn "Hello World from F#!"
     
             ]
     
