@@ -1,0 +1,54 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Index Page</title>
+    <script type="text/javascript">
+  //<![CDATA[
+
+  //]]>
+    </script>
+</head>
+<body>
+    <h1>Testing Index</h1>
+    <h2>Introduction</h2>
+    <p>
+        I am here with webservers built with suave. This one is important because it is built using
+        static files.
+    </p>
+    <h2>Navigation</h2>
+    <a href="about.html">about</a> <br />
+    <a href="contact.html">contact</a> <br />
+    <h2>Simple data POST</h2>
+    <form method="post" action="/postzone.html">
+        <p>
+            <input type="text" name="edit1" /><br />
+            <input type="submit" />
+        </p>
+    </form>
+
+    <h2>1. File Upload test</h2>
+    <form method="post" action="upload" enctype="multipart/form-data">
+        <p>
+            <input type="file" name="myfile" /><br />
+            <input type="submit" />
+        </p>
+    </form>
+
+    <h2>2. Multiple File Upload test &ndash; <pre>multipart/form-data</pre></h2>
+    <form method="PUT" action="upload2" enctype="multipart/form-data">
+        <p>
+            <input type="file" name="myfile1" /><br />
+            <input type="file" name="myfile2" /><br />
+            <input type="text" name="edit1" /><br />
+            <input type="submit" />
+        </p>
+    </form>
+
+    <h2>Image</h2>
+    <img src="examples.png" />
+
+</body>
+</html>

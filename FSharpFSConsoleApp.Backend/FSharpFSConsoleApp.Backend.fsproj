@@ -6,6 +6,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="File7.fs" />
+    <Compile Include="File6.fs" />
+    <Compile Include="File5.fs" />
+    <Compile Include="File4.fs" />
+    <Compile Include="File3.fs" />
+    <Compile Include="File2.fs" />
+    <Content Include="public\postzone.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public\about.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public\testing\posttesting.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public\testing\test.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="public\index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="File1.fs" />
+    <Compile Include="allwebserverimplementations.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
