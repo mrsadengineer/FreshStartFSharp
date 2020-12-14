@@ -1,15 +1,10 @@
-﻿module allwebserverimplementations
+﻿module webserverconfigexamples
 
 open System
-
 open Suave
-
 open Suave.Operators
-
 open Suave.Filters
-
 open Suave.Successful
-
 open System.Threading 
 
 //1. one line implementation

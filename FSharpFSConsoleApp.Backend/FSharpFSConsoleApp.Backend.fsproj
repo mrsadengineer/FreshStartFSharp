@@ -6,12 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="File7.fs" />
-    <Compile Include="File6.fs" />
-    <Compile Include="File5.fs" />
-    <Compile Include="File4.fs" />
-    <Compile Include="File3.fs" />
-    <Compile Include="File2.fs" />
+    <Compile Include="notes.fs" />
     <Content Include="public\postzone.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -27,12 +22,14 @@
     <Content Include="public\index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Compile Include="File1.fs" />
-    <Compile Include="allwebserverimplementations.fs" />
+    <Compile Include="FreshStartWhere.fs" />
+    <Compile Include="FreshStartWebServerApp.fs" />
+    <Compile Include="webserverconfigexamples.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Suave" Version="2.6.0" />
   </ItemGroup>
 

@@ -1,5 +1,4 @@
-﻿module File7
-
+﻿module FreshStartWebServerApp
 
 
 open Suave
@@ -10,15 +9,16 @@ open Suave.Filters
 open Suave.Logging
 open System.Threading
 open System
-open System.Diagnostics
 open System.IO
+open Newtonsoft.Json
 
-//simple custom config AND custom app route path for '/'
-let runWebServerWCustomConfigStaticFilesFromBrowserHome argv = 
-    printfn "Hello Config HomeFolder and custom routes !"
+
+
+
+let FreshStartWebServerApp argv = 
+    printfn "Setting up FreshStart Web Server with Suave !"
     let cts = new CancellationTokenSource()
     let logger = Targets.create Verbose [||]
-   // Define the port where you want to serve. We'll hardcode this for now.
     let port = 8080   
     let cfg = // create an app config with the port
     
@@ -29,26 +29,10 @@ let runWebServerWCustomConfigStaticFilesFromBrowserHome argv =
               logger     = logger
               homeFolder = Some (Path.GetFullPath "./public") }
     
-    let appa =  // We'll define a single GET route at the / endpoint that returns "Hello World"
-        choose [
-            GET >=> 
-        
-                path "/" >=> request (fun _ -> OK "Hello World!")
-                path "/f" >=> request (fun _ -> OK "Hello Friend!")
-                GET >=> path "/" >=> Files.file "index.html"
-                GET >=> path "/" >=> Files.file "about.html"
-                GET >=> Files.browseHome
-                RequestErrors.NOT_FOUND "Page not found." 
-
-          //  POST >=> //maynot be possible because CORS is not configured 
-
-               //POST >=> path "/postzone.html" >=> request (fun _ -> OK "posting processing......!")
-               //POST >=> path "/index.html" >=> request (fun _ -> OK "posting processing......!")
-             //  POST >=> path "/postzone.html"  >=>  OK "posting......"
-              // POST >=> path "/postzone.html" >=>  OK "posting......"  
-          ]
 
 
+
+    
 
     let app = 
         let setCORSHeaders =
@@ -57,12 +41,17 @@ let runWebServerWCustomConfigStaticFilesFromBrowserHome argv =
             >=> Writers.addHeader "Access-Control-Allow-Headers" "content-type" 
             >=> Writers.addHeader "Access-Control-Allow-Methods" "GET,POST,PUT"    
         //let hello = OK ("hello ")
+        
+        
+        
+        
+        
         let indexRequest = OK ("hello something index request")
         let dllFilesRequest = OK ("hello " )
         let staticFilesRequest = OK ("hello staticFilesRequest here")
         let runSomething = OK ("hello posting")
         let postZoneRequrest = OK ("Success: posting......")
-     
+        
         choose [
             GET >=>
                 fun context ->
@@ -83,9 +72,22 @@ let runWebServerWCustomConfigStaticFilesFromBrowserHome argv =
                             // ...
                             path "/" >=> request (fun _ -> OK "Hello World with nothing!")
                             path "/f" >=> request (fun _ -> OK "Hello Friend!")
-                         
+                            
+                        
+                            //##############################
+                            
+                            // We are getting the closest time zone, converting it to JSON, then setting the MimeType
+
+                            path "/six" >=> request (fun _ -> OK <| JsonConvert.SerializeObject(FreshStartWhere.getTZ6am())) >=> Suave.Writers.setMimeType "application/json; charset=utf-8"
+                            
+                            
+                            
+                            
+                            
+                            
                             RequestErrors.NOT_FOUND "Page not found." 
                             ] )
+
         
             POST >=>
                 fun context ->
@@ -95,16 +97,18 @@ let runWebServerWCustomConfigStaticFilesFromBrowserHome argv =
                             [
                             path "/something" >=> runSomething
                             path "/postzone.html" >=> postZoneRequrest
-                            // ...
+                            
+                            //  POST >=> //maynot be possible because CORS is not configured 
+
+                            //POST >=> path "/postzone.html" >=> request (fun _ -> OK "posting processing......!")
+                            //POST >=> path "/index.html" >=> request (fun _ -> OK "posting processing......!")
+                            ///  POST >=> path "/postzone.html"  >=>  OK "posting......"
+                            /// POST >=> path "/postzone.html" >=>  OK "posting......"  
                             ] )
         ]
         
         
-        
-    //// Now we start the server
-    //startWebServer cfg app
-    //let listening, server = startWebServerAsync cfg (choose [ GET >=> browseHome ])
-    let listening, server = startWebServerAsync cfg app //(choose [ GET >=> (Successful.OK "Hello World! startwebswerver async") ])
+    let listening, server = startWebServerAsync cfg app 
     Async.Start(server, cts.Token)
 
     printf("http://127.0.0.1:8080/index.html \n")
@@ -122,3 +126,21 @@ let runWebServerWCustomConfigStaticFilesFromBrowserHome argv =
 
 
 
+        
+    //// Now we start the server
+    //startWebServer cfg app
+    //let listening, server = startWebServerAsync cfg (choose [ GET >=> browseHome ])
+
+
+
+    //choose [
+    //    GET >=> 
+    
+    //        path "/" >=> request (fun _ -> OK "Hello World!")
+    //        path "/f" >=> request (fun _ -> OK "Hello Friend!")
+    //        GET >=> path "/" >=> Files.file "index.html"
+    //        GET >=> path "/" >=> Files.file "about.html"
+    //        GET >=> Files.browseHome
+    //        RequestErrors.NOT_FOUND "Page not found." 
+
+    //  ]
