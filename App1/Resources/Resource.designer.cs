@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("App1.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("FreshStart.Resource", IsApplication=true)]
 
-namespace App1
+namespace FreshStart
 {
 	
 	
@@ -45,6 +45,9 @@ namespace App1
 			
 			// aapt resource value: 0x7F010000
 			public const int myButton = 2130771968;
+			
+			// aapt resource value: 0x7F010001
+			public const int textView1 = 2130771969;
 			
 			static Id()
 			{
@@ -96,6 +99,9 @@ namespace App1
 			
 			// aapt resource value: 0x7F040001
 			public const int hello = 2130968577;
+			
+			// aapt resource value: 0x7F040002
+			public const int sixam = 2130968578;
 			
 			static String()
 			{

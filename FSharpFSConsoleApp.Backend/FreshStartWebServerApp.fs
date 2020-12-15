@@ -62,16 +62,16 @@ let FreshStartWebServerApp argv =
                             pathRegex "(.*?)\.(dll|mdb|log)$"  >=> dllFilesRequest
                             //pathRegex "(.*?)\.(html|css|js|png|jpg|ico|bmp)$"  >=> staticFilesRequest 
                             //path "/"  >=> indexRequest
-                            GET >=> path "/" >=> Files.file "index.html"
-                            GET >=> Files.browseHome
-                            GET >=> path "/" >=> Files.file "about.html"
-                            GET >=> Files.browseHome
+                            //GET >=> path "/" >=> Files.file "index.html"
+                            //GET >=> Files.browseHome
+                            //GET >=> path "/" >=> Files.file "about.html"
+                            //GET >=> Files.browseHome
 
-                            path "/index"  >=> indexRequest
+                            //path "/index"  >=> indexRequest
                             //path "/static" >=> staticFilesRequest
                             // ...
-                            path "/" >=> request (fun _ -> OK "Hello World with nothing!")
-                            path "/f" >=> request (fun _ -> OK "Hello Friend!")
+                            //path "/" >=> request (fun _ -> OK "Hello World with nothing!")
+                            path "/friend" >=> request (fun _ -> OK "Hello my Friend!")
                             
                         
                             //##############################
